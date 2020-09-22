@@ -33,12 +33,10 @@ export class UsersComponent implements OnInit {
   // Get user list
   getUserList() {
     const userList = this.userService.getAllUsers();
-    console.log('userList/////////////////////////////////////////////////////');
-    console.log(userList);
     this.success(userList);
   }
 
-  // Delete a user with its index
+  // Delete a user with is email
   deleteUserByEmail(email: string) {
     const userList = this.userService.deleteUserByEmail(email);
     this.success(userList);
