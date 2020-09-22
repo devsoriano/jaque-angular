@@ -42,7 +42,9 @@
     <tbody>
       <tr *ngFor="let user of userListData | filter:filterData">
         <td><img src="../../../../assets/points.svg" alt=""></td>
-        <td><img [src]="user.picture" alt="user" class="userImage"></td>
+        <td>
+          <img *ngIf="user.picture" [src]="user.picture" alt="user" class="userImage">
+        </td>
         <td>{{user.name}}</td>
         <td>{{user.fathersLastName}}</td>
         <td>{{user.mothersLastName}}</td>

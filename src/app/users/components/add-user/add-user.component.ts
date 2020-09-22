@@ -18,6 +18,7 @@ export class AddUserComponent implements OnInit {
   usersAddForm: FormGroup;
   email: any;
   userListData: UserInterface;
+  messageSuccess: string;
 
   constructor(
     private userService: UserService,
@@ -64,7 +65,7 @@ export class AddUserComponent implements OnInit {
   doRegister() {
     const userRegister = this.userService.doRegisterUser(this.usersAddForm.value, this.email);
     if (userRegister.code === 200) {
-      console.log('success');
+      this.messageSuccess = 'Usuario agregado correctamente';
     }
   }
 
