@@ -1,0 +1,55 @@
+<div class="container-form-add-user" *ngIf="usersAddForm">
+  <form class="for-add-user" [formGroup]="usersAddForm" (ngSubmit)="doRegister()" >
+    <div class="titular">
+      <h3>
+        <span *ngIf="email === undefined">Registro de usuario</span
+        ><span *ngIf="email != undefined">Actualización de usuario</span>
+      </h3>
+    </div>
+
+    <div class="row">
+      <b>Nombre</b>
+      <input
+        class="input-custom-form"
+        type="text"
+        formControlName="name"
+      />
+      <div
+        class="input-curtom-error"
+        *ngIf="
+          usersAddForm.controls.name.invalid &&
+          (usersAddForm.controls.name.dirty ||
+          usersAddForm.controls.name.touched)
+        "
+      >
+        El nombre debe ser de entre 3 y 50 caracteres
+      </div>
+    </div>
+
+    <div class="row">
+      <b>Email Address</b>
+      <input class="input-custom-form" type="text" formControlName="email" />
+      <div
+        class="input-curtom-error"
+        *ngIf="
+        usersAddForm.controls.email.invalid &&
+          (usersAddForm.controls.email.dirty ||
+          usersAddForm.controls.email.touched)
+        "
+      > ingrese un email válido
+      </div>
+    </div>
+
+    <div class="row">
+      <button
+        class="button-action"
+        type="submit"
+        [disabled]="!usersAddForm.valid"
+      >
+        <span *ngIf="email === undefined">Registrar</span>
+        <span *ngIf="email != undefined">Actualizar</span>
+      </button>
+    </div>
+
+  </form>
+</div>

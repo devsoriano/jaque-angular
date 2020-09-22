@@ -1,0 +1,95 @@
+.container-actions {
+  margin-top: 15px;
+  display: flex;
+  max-width: 1104px;
+  justify-content: space-around;
+  align-items: center;
+  height: 104px;
+
+  .title-subtitle {
+    width: 60%;
+
+    .title {
+      font-size: 20px;
+      color: #131B31;
+    }
+
+    .description {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #969696;
+    }
+  }
+
+  .container-preview {
+    width: 20%;
+
+    .preview {
+      width: 167px;
+      height: 48px;
+      color: #FA6A00;
+      font-size: 14px;
+      background-color: #fff;
+      border: solid 2px #FA6A00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .container-add {
+    width: 20%;
+
+    .add {
+      width: 225px;
+      height: 48px;
+      color: #fff;
+      font-size: 14px;
+      background-color: #FA6A00;
+      border: solid 2px #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+}
+
+/** Modal **/
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+  /* Modal Content */
+  .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+
+    .close {
+      color: #aaaaaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    &:hover,
+    &:focus {
+      color: #000;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+}

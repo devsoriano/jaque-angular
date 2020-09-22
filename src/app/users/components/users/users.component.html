@@ -1,0 +1,54 @@
+<section>
+  <div class="container-actions">
+    <div class="title-subtitle">
+      <div class="title">Usuarios</div>
+      <div class="description"> Lorem, ipsum dolor sit amet consectetur adipisicing elit.</div>
+    </div>
+    <div class="container-preview">
+      <div class="preview">
+        <div class="name">Previsualizar</div>
+      </div>
+    </div>
+    <div class="container-add">
+      <div class="add" (click)="openAddUser()">
+        <div class="name">+ Agregar nuevo usuario</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section>
+  <div class="container-search">
+    <input type="text" class="input-search" [(ngModel)]='filterData'>
+  </div>
+</section>
+<section *ngIf="(userListData | filter:filterData | filter:filterData).length != 0" >
+  <table class="table-hover table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+      </tr>
+      <tr>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of userListData | filter:filterData">
+        <td>{{user.name}}</td>
+        <td>
+          <div (click)="deleteUserByEmail(user.email);" class="w3-button w3-red">Borrar</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+<section>
+  <div id="modalAddUser" class="modal">
+    <!-- Modal content Add User -->
+    <div class="modal-content">
+      <span class="close" (click)="closeAddUser()">X</span>
+      <app-add-user></app-add-user>
+    </div>
+  </div>
+</section>
+
+
