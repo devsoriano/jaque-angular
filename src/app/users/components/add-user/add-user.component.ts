@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
 
 interface UserInterface {
   name: string;
+  fathersLastName: string;
+  mothersLastName: string;
   email: string;
 }
 
@@ -20,8 +21,7 @@ export class AddUserComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private formBuilder: FormBuilder,
-    private router: Router
+    private formBuilder: FormBuilder
   ) {
     this.createForm(null);
   }
@@ -33,6 +33,22 @@ export class AddUserComponent implements OnInit {
     if (data === null) {
       this.usersAddForm = this.formBuilder.group({
         name: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(50),
+          ],
+        ],
+        fathersLastName: [
+          '',
+          [
+            Validators.required,
+            Validators.minLength(3),
+            Validators.maxLength(50),
+          ],
+        ],
+        mothersLastName: [
           '',
           [
             Validators.required,

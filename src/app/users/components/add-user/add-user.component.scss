@@ -3,3 +3,38 @@ span.title-registro {
   font-size: 24px;
   font-weight: 400;
 }
+
+form.form-add-user {
+  text-align: center;
+}
+
+.row-label {
+  font-size: 22px;
+  color: #131B31;
+}
+
+input.input-custom-form {
+  width: 220px;
+  height: 36px;
+  font-size: 22px;
+}
+
+.row-content {
+  margin: 16px 0px 16px 0;
+}
+
+.row-content-error {
+  color: red;
+}
+
+.button-action {
+  width: 167px;
+  height: 48px;
+  color: #FA6A00;
+  font-size: 14px;
+  background-color: #fff;
+  border: solid 2px #FA6A00;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

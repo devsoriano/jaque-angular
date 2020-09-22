@@ -1,23 +1,20 @@
 <div class="container-form-add-user" *ngIf="usersAddForm">
-  <form class="for-add-user" [formGroup]="usersAddForm" (ngSubmit)="doRegister()" >
+  <form class="form-add-user" [formGroup]="usersAddForm" (ngSubmit)="doRegister()" >
     <div class="titular">
       <h3>
-        <span *ngIf="email === undefined" class="title-registro">Registro de usuario</span
-        ><span *ngIf="email != undefined" class="title-registro">Actualización de usuario</span>
+        <span *ngIf="email === undefined" class="title-registro">Registro de usuario</span>
+        <span *ngIf="email != undefined" class="title-registro">Actualización de usuario</span>
       </h3>
     </div>
-
-    <div class="row">
+    <div class="row-element">
       <div class="row-content">
-        <div>
-          Nombre:
-        </div>
-        <div>
+        <div class="row-label">Nombre:</div>
+        <div class="row-input">
           <input
-            class="input-custom-form"
-            type="text"
-            formControlName="name"
-          />
+          class="input-custom-form"
+          type="text"
+          formControlName="name"
+        />
         </div>
       </div>
       <div
@@ -31,14 +28,59 @@
         El nombre debe ser de entre 3 y 50 caracteres
       </div>
     </div>
-
-    <div class="row">
+    <div class="row-element">
       <div class="row-content">
-        <div>
-          Email Address:
+        <div class="row-label">Apellido paterno:</div>
+        <div class="row-input">
+          <input
+          class="input-custom-form"
+          type="text"
+          formControlName="fathersLastName"
+        />
         </div>
-        <div>
-          <input class="input-custom-form" type="text" formControlName="email" />
+      </div>
+      <div
+        class="row-content-error"
+        *ngIf="
+          usersAddForm.controls.fathersLastName.invalid &&
+          (usersAddForm.controls.fathersLastName.dirty ||
+          usersAddForm.controls.fathersLastName.touched)
+        "
+      >
+        El apellido paterno debe ser de entre 3 y 50 caracteres
+      </div>
+    </div>
+    <div class="row-element">
+      <div class="row-content">
+        <div class="row-label">Apellido materno:</div>
+        <div class="row-input">
+          <input
+          class="input-custom-form"
+          type="text"
+          formControlName="mothersLastName"
+        />
+        </div>
+      </div>
+      <div
+        class="row-content-error"
+        *ngIf="
+          usersAddForm.controls.mothersLastName.invalid &&
+          (usersAddForm.controls.mothersLastName.dirty ||
+          usersAddForm.controls.mothersLastName.touched)
+        "
+      >
+        El apellido materno debe ser de entre 3 y 50 caracteres
+      </div>
+    </div>
+    <div class="row-element">
+      <div class="row-content">
+        <div class="row-label">Email Address:</div>
+        <div class="row-input">
+          <input
+            class="input-custom-form"
+            type="text"
+            formControlName="email"
+          />
         </div>
       </div>
       <div
@@ -50,11 +92,9 @@
         "
       > ingrese un email válido
       </div>
-        El nombre debe ser de entre 3 y 50 caracteres
     </div>
 
-
-    <div class="row">
+    <div class="row-element">
       <button
         class="button-action"
         type="submit"
