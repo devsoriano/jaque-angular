@@ -46,7 +46,7 @@ export class AddUserComponent implements OnInit {
   }
 
   doRegister() {
-    const userRegister = this.userService.doRegisterUSer(this.usersAddForm.value, this.email);
+    const userRegister = this.userService.doRegisterUser(this.usersAddForm.value, this.email);
     if (userRegister.code === 200) {
       console.log('success');
     }

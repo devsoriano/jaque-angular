@@ -2,7 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 
 interface UserInterface {
+  picture: string;
   name: string;
+  fathersLastName: string;
+  mothersLastName: string;
+  roleId: string;
+  active: string;
   email: string;
 }
 
@@ -28,6 +33,8 @@ export class UsersComponent implements OnInit {
   // Get user list
   getUserList() {
     const userList = this.userService.getAllUsers();
+    console.log('userList/////////////////////////////////////////////////////');
+    console.log(userList);
     this.success(userList);
   }
 

@@ -28,7 +28,16 @@ export class UserService {
   // Delete user
   deleteUserByEmail(email: string) {
     const userList = JSON.parse(localStorage.getItem('users'));
-    userList.splice(email, 1);
+
+    let i = 0;
+    while (i < userList.length) {
+      if (userList[i].email === email) {
+        userList.splice(i, 1);
+      } else {
+        ++i;
+      }
+    }
+
     localStorage.setItem('users', JSON.stringify(userList));
 
     const returnData = {
@@ -40,7 +49,7 @@ export class UserService {
     return returnData;
   }
 
-  doRegisterUSer(data, email) {
+  doRegisterUser(data, email) {
     const userList = JSON.parse(localStorage.getItem('users'));
     let returnData;
     userList.unshift(data);

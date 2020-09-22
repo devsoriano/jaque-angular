@@ -1,3 +1,4 @@
+/**Section actions**/
 .container-actions {
   margin-top: 15px;
   display: flex;
@@ -54,6 +55,52 @@
       cursor: pointer;
     }
   }
+}
+
+/**Section search**/
+.container-search {
+
+  display: flex;
+  background-color: #DFDFDF;
+  width: fit-content;
+  border: 4px solid #DFDFDF;
+
+  .icon-search {
+    background-image: url('./../../../../assets/search.svg');
+    background-repeat: no-repeat;
+    width: 48px;
+    height: 48px;
+    background-size: 48px 48px;
+    display: block;
+    padding-left: -6px;
+  }
+  .input-search {
+    width: 387px;
+    height: 48px;
+    font-size: 22px;
+    border: 0px;
+    background-color: #DFDFDF;
+    color: #5F5F5F;
+  }
+}
+
+/**Section response**/
+.section-response {
+  margin-top: 20px;
+}
+
+img.userImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+table.table-response {
+  width: 100%;
+}
+
+th {
+  text-align: left;
 }
 
 /** Modal **/

@@ -6,36 +6,54 @@
     </div>
     <div class="container-preview">
       <div class="preview">
+        <img src="../../../../assets/eye.svg" alt="">
         <div class="name">Previsualizar</div>
       </div>
     </div>
     <div class="container-add">
       <div class="add" (click)="openAddUser()">
-        <div class="name">+ Agregar nuevo usuario</div>
+        <img src="../../../../assets/add.svg" alt="">
+        <div class="name">Agregar nuevo usuario</div>
       </div>
     </div>
   </div>
 </section>
 <section>
   <div class="container-search">
-    <input type="text" class="input-search" [(ngModel)]='filterData'>
+    <div class="icon-search"></div>
+    <input type="text" class="input-search" placeholder="Búsqueda" [(ngModel)]='filterData'>
   </div>
 </section>
-<section *ngIf="(userListData | filter:filterData | filter:filterData).length != 0" >
-  <table class="table-hover table-striped">
+<section *ngIf="(userListData | filter:filterData | filter:filterData).length != 0" class="section-response">
+  <table class="table-response">
     <thead>
       <tr>
+        <th></th>
+        <th></th>
         <th>Name</th>
-      </tr>
-      <tr>
-
+        <th>Apellido paterno</th>
+        <th>Apellido materno</th>
+        <th>Email</th>
+        <th>Rol id</th>
+        <th>Estatus</th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let user of userListData | filter:filterData">
+        <td><img src="../../../../assets/points.svg" alt=""></td>
+        <td><img [src]="user.picture" alt="user" class="userImage"></td>
         <td>{{user.name}}</td>
+        <td>{{user.fathersLastName}}</td>
+        <td>{{user.mothersLastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.roleId}}</td>
         <td>
-          <div (click)="deleteUserByEmail(user.email);" class="w3-button w3-red">Borrar</div>
+          <img *ngIf="user.active" src="../../../../assets/toggle_on.svg" alt="">
+          <img *ngIf="!user.active" src="../../../../assets/toggle_off.svg" alt="">
+        </td>
+        <td>
+          <img src="../../../../assets/trash.svg" alt="" (click)="deleteUserByEmail(user.email);"  class="delete"/>
         </td>
       </tr>
     </tbody>
